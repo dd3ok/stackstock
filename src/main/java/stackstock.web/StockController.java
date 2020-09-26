@@ -19,7 +19,7 @@ import stackstock.repo.StockRepository;
 @SessionAttributes("stock")
 public class StockController {
 
-    private StockRepository stockRepo;
+    private final StockRepository stockRepo;
 
     public StockController(StockRepository stockRepo) {
         this.stockRepo = stockRepo;

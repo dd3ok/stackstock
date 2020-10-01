@@ -15,7 +15,7 @@ import stackstock.repo.StockRepository;
 
 @Slf4j
 @Controller
-@RequestMapping("/stock")
+@RequestMapping("/stocks")
 @SessionAttributes("stock")
 public class StockController {
 

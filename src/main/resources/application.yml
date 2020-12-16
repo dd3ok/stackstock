@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      host: 54.180.93.176
+      port: 27017
+      authentication-database: customDB
+      database: customDB
+      username: stackuser
+      password: tmxor11!

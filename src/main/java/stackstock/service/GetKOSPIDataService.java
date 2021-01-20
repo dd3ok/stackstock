@@ -19,25 +19,6 @@ public class GetKOSPIDataService {
     @Autowired
     WebClient webClient;
 
-    public void getData(){
-        Mono<String> result = webClient.get().
-                uri("https://finance.naver.com/item/main.nhn?code=005930").
-                retrieve().
-                bodyToMono(String.class);
-
-        result.subscribe(i->{
-            Document doc = Jsoup.parse(i);
-            Elements elements = doc.getElementById("middle").
-                    getElementsByClass("blind").
-                    first().
-                    getElementsByTag("dd");
-            for(Element element : elements){
-                System.out.println(element.text());
-            }
-
-        });
-    }
-
     Mono <String> getKospiPageByCode(String code){
         return webClient.get().
                 uri("https://finance.naver.com/item/main.nhn?code={code}", code).

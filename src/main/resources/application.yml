@@ -7,3 +7,5 @@ spring:
       database: customDB
       username: stackuser
       password: tmxor11!
+logging:
+  config: classpath:log4j2.xml

@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.3.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id "io.freefair.lombok" version "5.3.0"
     id 'java'
 }
 
@@ -10,6 +11,11 @@ version = '0.0.1-SNAPSHOT'
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
+    }
+    configurations {
+        all {
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+        }
     }
 }
 
@@ -22,9 +28,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     compileOnly 'org.projectlombok:lombok'
     compile 'org.jsoup:jsoup:1.11.3'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.10.3'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') { exclude module: 'junit' }
     testImplementation('org.junit.jupiter:junit-jupiter-api')

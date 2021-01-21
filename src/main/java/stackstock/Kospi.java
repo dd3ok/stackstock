@@ -20,6 +20,7 @@ import java.util.Date;
 public class Kospi implements Serializable {
     @Id
     private Long id;
+    private String code;
     private String stockNumber;
     private String stockPrice;
     private Long tradeVolume;

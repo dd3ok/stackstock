@@ -1,28 +1,22 @@
-package stackstock;
+package KospiCrawler;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
 import java.util.Date;
 
-
-
-@Data
 @Getter
 @Setter
 @ToString
-@Document(value="kospi")
-public class Kospi implements Serializable {
+@Document
+public class Kospi {
     @Id
-    private Long id;
+    private String id;
     private String code;
-    private String stockNumber;
-    private String stockPrice;
+    private Long price;
     private Long tradeVolume;
     private Date getDate = new Date();
 
